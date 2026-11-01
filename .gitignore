@@ -1,0 +1,6 @@
+makhado.db
+makhado.db-shm
+makhado.db-wal
+node_modules/
+.env
+.DS_Store

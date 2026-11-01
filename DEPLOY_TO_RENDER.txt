@@ -1,0 +1,37 @@
+MAKHADO COMMUNITY HEALTH CENTRE — UNIVERSITY DEMO DEPLOYMENT
+
+This package is prepared for a temporary Render Web Service deployment.
+It is a university demonstration only. Do not enter real patient information.
+
+IMPORTANT DATABASE LIMITATION
+This project uses a local SQLite file (makhado.db). Render Free web services have an ephemeral filesystem and can lose the SQLite database whenever the service restarts, redeploys, or spins down. The free service also sleeps after inactivity and may take about a minute to wake. This is acceptable only for a temporary class demonstration using fictional data. Do not use it for real clinic operations or store real patient records.
+
+PUBLISHING STEPS
+1. Create or sign in to GitHub at https://github.com.
+2. Create a NEW repository named makhado-community-health-centre-demo.
+   For a lecturer demonstration, Public is easiest. Do not upload real patient data, passwords, database files, or private records.
+3. Extract this project folder. Upload the CONTENTS of this app folder to the repository root:
+   - server.js
+   - package.json
+   - render.yaml
+   - public/ (including images)
+   - README.txt and this file
+   Do NOT upload makhado.db, node_modules, or personal data.
+4. On https://render.com, sign up / sign in and choose New + → Blueprint.
+5. Connect GitHub, select the makhado-community-health-centre-demo repository, and apply the Blueprint.
+   Alternatively choose New + → Web Service, select the repository, then use:
+   Build command: npm install
+   Start command: npm start
+   Runtime: Node
+   Instance: Free
+6. When Render asks for ADMIN_PASSWORD, enter a new strong demo-only password. Save it somewhere safe. The admin account is created the first time the database is initialised. If the database is recreated after a free-service restart, the admin account is recreated from ADMIN_EMAIL and ADMIN_PASSWORD.
+7. Wait for the deploy status to show Live. Open the onrender.com URL Render gives you and test the home page, patient registration, appointment request, tracking, feedback and admin dashboard.
+8. Give your lecturer that onrender.com URL. Share the demo admin credentials separately only if the lecturer needs to inspect the admin dashboard.
+
+NOTES
+- The server binds to 0.0.0.0 and uses Render's PORT environment variable.
+- Node.js 22.5+ is required because the app uses node:sqlite.
+- Do not use the local admin password printed in the original README; set your own demo-only ADMIN_PASSWORD in Render.
+- A public GitHub repository makes the source code visible. If you prefer private source, connect a private repository to Render instead.
+- For persistent demo data, use a paid Render web service with a persistent disk, or migrate SQLite to a managed PostgreSQL database. Neither is necessary if your lecturer only needs a short-lived demo and you use fictional records.
+- This prototype is not production-ready: no independent security review, approved clinical identity verification, formal POPIA controls, durable backups, or production audit controls. Do not use it for actual clinic care.

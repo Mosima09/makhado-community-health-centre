@@ -1,0 +1,8 @@
+{
+  "name": "makhado-community-health-centre-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "University demonstration website for Makhado Community Health Centre",
+  "engines": { "node": ">=22.5.0" },
+  "scripts": { "start": "node server.js" }
+}
